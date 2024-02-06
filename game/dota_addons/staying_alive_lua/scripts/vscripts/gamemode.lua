@@ -328,8 +328,6 @@ function spawn_game_unit()
 		print("[debug] Creep count currently: " .. get_creep_count() .. ". max creep limit constant is: " .. CU_MAX_BASIC_CREEPS)
 	end
 
-
-	--local enemy_roll = RandomInt(1,2)
 	local unit_to_spawn = get_sa_unit_name(get_timed_creepname())
 
 	print("[debug] get_sa_unit_name(" .. unit_to_spawn .. ")")
@@ -399,7 +397,7 @@ function spawn_ancient_game_unit()
 			--local spawn_location_origin_unaudited = resolve_distant_location(player_hero_location)
 			local spawn_location_origin = get_validated_spawn_location()
 
-			local unit = CreateUnitByName(unit_to_spawn, spawn_location_origin, true, nil, nil, DOTA_TEAM_BADGUYS)
+			local unit = CreateUnitByName(unit_to_spawn, spawn_location_origin, true, nil, nil, DOTA_TEAM_NEUTRALS)
 			FindClearSpaceForUnit( unit, spawn_location_origin, true )
 			-- Place a unit somewhere not already occupied.
 
@@ -440,6 +438,17 @@ function spawn_ancient_game_unit()
 				unit:SetMaxHealth( new_health_a )
 				unit:SetBaseMaxHealth( new_health_a )
 				unit:Heal( new_health_a, unit )
+
+				local min_dmg = unit:GetBaseDamageMin()
+				local max_dmg = unit:GetBaseDamageMax()
+				local min_dmg_scaled = min_dmg*health_multipler_value_f
+				local max_dmg_scaled = min_dmg*health_multipler_value_f
+				unit:SetBaseDamageMin( min_dmg_scaled )
+				unit:SetBaseDamageMax( max_dmg_scaled )
+				local default_scale = unit:GetModelScale()
+				local adjusted_scale = default_scale*health_multipler_value_f
+				unit:SetModelScale( adjusted_scale )
+
 			else
 			end
 
