@@ -10,6 +10,8 @@ require('settings')
 require('events')
 -- filters.lua
 require('filters')
+-- gathering_nodes.lua
+require('gathering_nodes')
 
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
@@ -351,6 +353,7 @@ function spawn_game_unit()
 			unit:SetAttacking( player_hero )
 			unit:SetForceAttackTarget( player_hero )
 			unit:AddAbility( "sa_creep_tracker" )
+			unit:AddAbility( "sa_hostile_ai" )			
 			local abil_to_hide = unit:FindAbilityByName( "sa_creep_tracker" )
 			abil_to_hide:SetHidden( true )
 
@@ -409,6 +412,7 @@ function spawn_ancient_game_unit()
 			unit:SetAttacking( player_hero )
 			unit:SetForceAttackTarget( player_hero )
 			unit:AddAbility( "sa_ancient_tracker" )
+			unit:AddAbility( "sa_hostile_ai" )			
 			local abil_to_hide = unit:FindAbilityByName( "sa_ancient_tracker" )
 			abil_to_hide:SetHidden( true )
 

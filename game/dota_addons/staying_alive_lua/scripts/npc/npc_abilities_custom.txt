@@ -387,5 +387,113 @@
 
 
 
+    "sa_ignore_by_npcs"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"       "ability_datadriven"
+        "MaxLevel"            "1"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+        "AbilityTextureName"            ""
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"      "0.0"
+        "AbilityCooldown"       "0.0"
+        "AbilityManaCost"       "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"        "FIELD_INTEGER"
+                "bonus_vision"   "1000"
+            }
+            
+        }
+
+        "Modifiers"
+        {
+            "modifier_ignored_by_creeps_datadriven"
+            {
+                "Passive"           "1"
+                "IsHidden"          "1"
+                "IsDebuff"          "0"
+
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+            }
+        }
+    }
+
+
+    "sa_hostile_ai"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"       "ability_datadriven"
+        "MaxLevel"            "1"
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+        "AbilityTextureName"            ""
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"      "0.0"
+        "AbilityCooldown"       "0.0"
+        "AbilityManaCost"       "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"        "FIELD_INTEGER"
+                "bonus_vision"   "1000"
+            }
+            
+        }
+
+        "Modifiers"
+        {
+            "modifier_hostile_ai_passive_datadriven"
+            {
+                "Passive"           "1"
+                "IsHidden"          "1"
+                "IsDebuff"          "0"
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
