@@ -365,6 +365,19 @@ function spawn_game_unit()
 					print("[debug] unit ability leveled up: " .. ability_u:GetName() )
 				end
 			end
+
+			-- scaling bounty
+			if gamemode.current_countdown then
+				local base_bounty = unit:GetGoldBounty()
+				local spawn_rate = gamemode.current_countdown
+				
+				local base_bounty_per_sec = base_bounty / DEFAULT_STARTING_TIMER_VALUE
+				local adjusted_bounty = base_bounty_per_sec * spawn_rate 			
+				unit:SetMinimumGoldBounty( adjusted_bounty )
+				unit:SetMaximumGoldBounty( adjusted_bounty )
+			else
+			end
+
 		else
 		end
 	else
