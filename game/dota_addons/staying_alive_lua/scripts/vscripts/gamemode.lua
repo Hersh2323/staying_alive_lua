@@ -375,6 +375,7 @@ function spawn_game_unit()
 				local adjusted_bounty = base_bounty_per_sec * spawn_rate 			
 				unit:SetMinimumGoldBounty( adjusted_bounty )
 				unit:SetMaximumGoldBounty( adjusted_bounty )
+
 			else
 			end
 

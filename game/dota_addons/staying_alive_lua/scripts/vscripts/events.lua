@@ -91,6 +91,12 @@ function barebones:OnNPCSpawned(keys)
 		npc.bFirstSpawned = true
 		self:OnHeroInGame(npc)
 	end
+
+	-- OnHeroInGame
+	if npc:IsRealHero() then
+		npc:RemoveModifierByName("modifier_fountain_invulnerability")
+	end
+
 end
 
 --[[
@@ -322,7 +328,6 @@ function barebones:OnPlayerLevelUp(keys)
 			hero:SetMinimumGoldBounty(gold_bounty)
 			hero:SetMaximumGoldBounty(gold_bounty)
 		end
-
 		-- Example how to add an extra skill point when a hero levels up
 		--[[
 		local levels_without_ability_point = {17, 19, 21, 22, 23, 24}	-- on this levels you should get a skill point (edit this if needed)
